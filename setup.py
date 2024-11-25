@@ -62,7 +62,7 @@ setup(
             "seaborn==0.9.0",
             "ray[rllib]==1.13.0",
             "protobuf",
-            "tensorflow=2.10.0",
+            "tensorflow==2.10.0",
         ]
     },
     entry_points={
