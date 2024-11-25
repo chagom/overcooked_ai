@@ -9,7 +9,8 @@ import dill
 import gym
 import numpy as np
 import ray
-from ray.rllib.agents.ppo import PPOTrainer
+# from ray.rllib.agents.ppo import PPOTrainer
+from ray.rllib.algorithms.ppo import PPO
 from ray.rllib.algorithms.callbacks import DefaultCallbacks
 from ray.rllib.env.multi_agent_env import MultiAgentEnv
 from ray.rllib.models import ModelCatalog
@@ -780,7 +781,8 @@ def gen_trainer_from_params(params):
         environment_params["eval_mdp_params"] = environment_params[
             "mdp_params"
         ]
-    trainer = PPOTrainer(
+        # from ray.rllib.algorithms.ppo import PPO
+    trainer = PPO(
         env="overcooked_multi_agent",
         config={
             "multiagent": multi_agent_config,

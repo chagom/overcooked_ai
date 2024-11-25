@@ -30,11 +30,7 @@ RUN if [ "$BUILD_ENV" = "production" ] ; then pip install eventlet ; fi
 RUN git clone --recursive https://github.com/chagom/overcooked_ai.git --branch $OVERCOOKED_BRANCH --single-branch /overcooked_ai
 
 # Update ray[rllib] version in setup.py
-<<<<<<< HEAD
-RUN sed -i "s/ray\[rllib\]==2.0.0/ray\[rllib\]==1.13.0/" /overcooked_ai/setup.py
-=======
-# RUN sed -i "s/ray\[rllib\]==2.0.0/ray\[rllib\]==1.13.0/" /overcooked_ai/setup.py
->>>>>>> 51f201e (raylib 2.x)
+RUN sed -i "s/ray\[rllib\]==2.0.0/ray\[rllib\]>=2.2.0/" /overcooked_ai/setup.py
 
 # Dummy data_dir so things don't break
 RUN echo "import os; DATA_DIR=os.path.abspath('.')" >> /overcooked_ai/src/human_aware_rl/data_dir.py
