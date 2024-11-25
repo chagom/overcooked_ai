@@ -27,7 +27,7 @@ RUN pip install -r requirements.txt
 RUN if [ "$BUILD_ENV" = "production" ] ; then pip install eventlet ; fi
 
 # Clone chai code
-RUN git clone --recursive https://github.com/HumanCompatibleAI/overcooked_ai.git --branch $OVERCOOKED_BRANCH --single-branch /overcooked_ai
+RUN git clone --recursive https://github.com/chagom/overcooked_ai.git --branch $OVERCOOKED_BRANCH --single-branch /overcooked_ai
 
 # Update ray[rllib] version in setup.py
 RUN sed -i "s/ray\[rllib\]==2.0.0/ray\[rllib\]>=2.2.0/" /overcooked_ai/setup.py
